@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback, memo } from 'react';
-import { getDocs, addDoc, collection, onSnapshot, query, orderBy, serverTimestamp } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../firebase-comment';
+// Firebase removed — commented imports to avoid build errors.
+// If you want to re-enable Firebase later, restore these imports and provide a firebase config file.
+// import { getDocs, addDoc, collection, onSnapshot, query, orderBy, serverTimestamp } from 'firebase/firestore';
+// import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+// import { db, storage } from '../firebase-comment';
 import { MessageCircle, UserCircle2, Loader2, AlertCircle, Send, ImagePlus, X } from 'lucide-react';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -82,10 +84,10 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                 <label className="block text-sm font-medium text-white">
                     Name <span className="text-red-400">*</span>
                 </label>
-                <input
+                    <input
                     type="text"
                     value={userName}
-                    onChange={(e) => setUserName(e.target.value)}z
+                    onChange={(e) => setUserName(e.target.value)}
                     placeholder="Enter your name"
                     className="w-full p-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
                     required
@@ -194,24 +196,23 @@ const Komentar = () => {
         });
     }, []);
 
+    // Firebase listener removed. Use a local fallback so the component works without Firebase.
     useEffect(() => {
-        const commentsRef = collection(db, 'portfolio-comments');
-        const q = query(commentsRef, orderBy('createdAt', 'desc'));
-        
-        return onSnapshot(q, (querySnapshot) => {
-            const commentsData = querySnapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-            setComments(commentsData);
-        });
+        // If you previously used Firestore to populate comments, re-enable the listener.
+        // For now, start with an empty comments array to avoid runtime errors.
+        setComments([]);
+        // No cleanup required for local fallback.
     }, []);
 
+    // Local fallback for image upload — returns an object URL for previewing locally.
     const uploadImage = useCallback(async (imageFile) => {
         if (!imageFile) return null;
-        const storageRef = ref(storage, `profile-images/${Date.now()}_${imageFile.name}`);
-        await uploadBytes(storageRef, imageFile);
-        return getDownloadURL(storageRef);
+        try {
+            // createObjectURL is sufficient for local preview and avoids any Firebase storage dependency.
+            return URL.createObjectURL(imageFile);
+        } catch (err) {
+            return null;
+        }
     }, []);
 
     const handleCommentSubmit = useCallback(async ({ newComment, userName, imageFile }) => {
@@ -220,15 +221,22 @@ const Komentar = () => {
         
         try {
             const profileImageUrl = await uploadImage(imageFile);
-            await addDoc(collection(db, 'portfolio-comments'), {
+
+            // Local fallback: append the new comment to local state so the UI still works.
+            const localComment = {
+                id: Date.now().toString(),
                 content: newComment,
                 userName,
                 profileImage: profileImageUrl,
-                createdAt: serverTimestamp(),
-            });
+                // Keep a similar shape to Firestore Timestamp by providing a toDate() method.
+                createdAt: { toDate: () => new Date() },
+            };
+
+            setComments((prev) => [localComment, ...prev]);
         } catch (error) {
             setError('Failed to post comment. Please try again.');
-            console.error('Error adding comment: ', error);
+            // Keep console error for debugging; harmless in production.
+            console.error('Error adding comment (local fallback): ', error);
         } finally {
             setIsSubmitting(false);
         }

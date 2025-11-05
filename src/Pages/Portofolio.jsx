@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { db, collection } from "../firebase";
-import { getDocs } from "firebase/firestore";
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
@@ -132,38 +130,30 @@ export default function FullWidthTabs() {
     });
   }, []);
 
-  const fetchData = useCallback(async () => {
-    try {
-      const projectCollection = collection(db, "projects");
-      const certificateCollection = collection(db, "certificates");
+  // ✅ Static data without Firebase
+useEffect(() => {
+  const localProjects = [
+    {
+      id: 1,
+      Title: "Vroom.com - Car Rental UI",
+      Description:
+        "Modern and engaging front-end UI for a car rental platform, built with focus on user experience and responsiveness.",
+      Img: "src/assets/vroom-interface.png",
+      Link: "https://precious-kitten-73c9b4.netlify.app/",
+    },
+    {
+      id: 2,
+      Title: "ShopSwiftly - E-commerce UI",
+      Description:
+        "A fully responsive front-end e-commerce website UI with a clean design, showcasing modern web development techniques.",
+      Img: "/src/assets/shophub-interface.png",
+      Link: "https://prahlad-web.github.io/ShopSwiftly/",
+    },
+  ];
 
-      const [projectSnapshot, certificateSnapshot] = await Promise.all([
-        getDocs(projectCollection),
-        getDocs(certificateCollection),
-      ]);
+  setProjects(localProjects);
+}, []);
 
-      const projectData = projectSnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-        TechStack: doc.data().TechStack || [],
-      }));
-
-      const certificateData = certificateSnapshot.docs.map((doc) => doc.data());
-
-      setProjects(projectData);
-      setCertificates(certificateData);
-
-      // Store in localStorage
-      localStorage.setItem("projects", JSON.stringify(projectData));
-      localStorage.setItem("certificates", JSON.stringify(certificateData));
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

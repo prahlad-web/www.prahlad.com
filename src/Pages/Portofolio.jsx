@@ -138,7 +138,7 @@ useEffect(() => {
       Title: "Vroom.com - Car Rental UI",
       Description:
         "Modern and engaging front-end UI for a car rental platform, built with focus on user experience and responsiveness.",
-      Img: "src/assets/vroom-interface.png",
+      Img: "/vroom-interface.png",
       Link: "https://precious-kitten-73c9b4.netlify.app/",
     },
     {
@@ -146,7 +146,7 @@ useEffect(() => {
       Title: "ShopSwiftly - E-commerce UI",
       Description:
         "A fully responsive front-end e-commerce website UI with a clean design, showcasing modern web development techniques.",
-      Img: "/src/assets/shophub-interface.png",
+      Img: "/shophub-interface.png",
       Link: "https://prahlad-web.github.io/ShopSwiftly/",
     },
   ];

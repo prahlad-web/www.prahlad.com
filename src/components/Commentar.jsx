@@ -1,9 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback, memo } from 'react';
-// Firebase removed — commented imports to avoid build errors.
-// If you want to re-enable Firebase later, restore these imports and provide a firebase config file.
-// import { getDocs, addDoc, collection, onSnapshot, query, orderBy, serverTimestamp } from 'firebase/firestore';
-// import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-// import { db, storage } from '../firebase-comment';
+import React, { useState, useEffect, useRef, useCallback, memo } from 'react';;
 import { MessageCircle, UserCircle2, Loader2, AlertCircle, Send, ImagePlus, X } from 'lucide-react';
 import AOS from "aos";
 import "aos/dist/aos.css";

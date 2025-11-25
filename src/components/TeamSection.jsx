@@ -8,14 +8,14 @@ const team = [
     name: "Shyam Shukla",
     role: "Frontend Developer",
     desc: "Creates stunning and high-performance user interfaces with React, Vite and Tailwind.",
-    img: "/src/assets/team1.jpg", // case-sensitive path
+    img: "/public/thumbs/team1.jpg", // case-sensitive path
     link: "/team/shyam-shukla",
   },
   {
     name: "Saumya Chandra",
     role: "UGC Content Creator",
     desc: "Crafts powerful visual stories and engaging brand videos with creativity and strategy.",
-    img: "/src/assets/team2.jpg",
+    img: "/public/thumbs/team2.jpg",
     link: "/team/saumya-chandra",
   },
 ];

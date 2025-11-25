@@ -8,7 +8,7 @@ const team = [
     name: "Shyam Shukla",
     role: "Frontend Developer",
     desc: "Creates stunning and high-performance user interfaces with React, Vite and Tailwind.",
-    img: "/src/assets/Team1.jpg", // case-sensitive path
+    img: "/src/assets/team1.jpg", // case-sensitive path
     link: "/team/shyam-shukla",
   },
   {

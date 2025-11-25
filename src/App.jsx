@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import "./index.css";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
+import TeamSection from "./components/TeamSection";
+import Shyam from "./Pages/shyam";
+import Saumya from "./Pages/saumya";
 import AnimatedBackground from "./components/Background";
 import Navbar from "./components/Navbar";
 import Portofolio from "./Pages/Portofolio";
@@ -10,6 +13,8 @@ import ContactPage from "./Pages/Contact";
 import ProjectDetails from "./components/ProjectDetail";
 import WelcomeScreen from "./Pages/WelcomeScreen";
 import { AnimatePresence } from 'framer-motion';
+import ScrollToHash from "./ScrollToHash";
+
 
 const LandingPage = ({ showWelcome, setShowWelcome }) => {
   return (
@@ -26,8 +31,12 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
           <AnimatedBackground />
           <Home />
           <About />
-          <Portofolio />
-          <ContactPage />
+
+        <div id="team">
+        <TeamSection />
+       </div>
+      <Portofolio />
+      <ContactPage />
           <footer>
             <center>
               <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
@@ -69,9 +78,12 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToHash />
       <Routes>
         <Route path="/" element={<LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />} />
         <Route path="/project/:id" element={<ProjectDetails />} />
+        <Route path="/team/shyam-shukla" element={<Shyam />} />
+        <Route path="/team/saumya-chandra" element={<Saumya />} />
       </Routes>
     </BrowserRouter>
   );

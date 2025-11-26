@@ -97,7 +97,7 @@ export default function Shyam() {
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
             <div className="relative inline-flex items-center justify-center mx-auto">
               <div className="absolute -z-10 rounded-full w-72 h-72 md:w-96 md:h-96" style={{ boxShadow: "0 50px 140px rgba(30,90,150,0.14)", background: "radial-gradient(circle at 30% 30%, rgba(0,255,220,0.06), transparent 30%)" }} />
-              <img src="/src/assets/Team1.jpg" alt="Shyam" className="w-36 h-36 md:w-56 md:h-56 rounded-full object-cover border-4 border-[#7c6cff]/30 shadow-[0_40px_120px_rgba(0,0,0,0.6)]" />
+              <img src="/thumbs/team1.jpg" alt="Shyam" className="w-36 h-36 md:w-56 md:h-56 rounded-full object-cover border-4 border-[#7c6cff]/30 shadow-[0_40px_120px_rgba(0,0,0,0.6)]" />
             </div>
 
             <h1 className="mt-6 text-3xl md:text-5xl font-extrabold tracking-tight">Shyam Shukla</h1>

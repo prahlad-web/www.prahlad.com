@@ -44,42 +44,48 @@ const SAMPLE_WORK = [
     title: "Sample Video 1",
     desc: "Short description of the asset and result.",
     thumb: "/thumbs/ugc1.jpg",
-    video: "/src/assets/videos/ugc1.mp4",
+    video: "/videos/ugc1.mp4",
+
   },
   {
     id: 2,
     title: "Sample Video 2",
     desc: "Short description of the asset and result.",
     thumb: "/thumbs/ugc2.jpg",
-    video: "/src/assets/videos/ugc2.mp4",
+    video: "/videos/ugc1.mp4",
+
   },
   {
     id: 3,
     title: "Sample Video 3",
     desc: "Short description of the asset and result.",
     thumb: "/thumbs/ugc3.jpg",
-    video: "/src/assets/videos/ugc3.mp4",
+    video: "/videos/ugc1.mp4",
+
   },
   {
     id: 4,
     title: "Sample Video 4",
     desc: "Short description of the asset and result.",
-    thumb: "/thumbs/ugc4.jgp",
-    video: "/src/assets/videos/ugc4.mp4",
+    thumb: "/thumbs/ugc4.jpg",
+    video: "/videos/ugc1.mp4",
+
   },
   {
     id: 5,
     title: "Sample Video 5",
     desc: "Short description of the asset and result.",
-    thumb: "/thumbs/ugc5.jgp",
-    video: "/src/assets/videos/ugc5.mp4",
+    thumb: "/thumbs/ugc5.jpg",
+    video: "/videos/ugc1.mp4",
+
   },
   {
     id: 6,
     title: "Sample Video 6",
     desc: "Short description of the asset and result.",
-    thumb: "/thumbs/ugc6.jgp",
-    video: "/src/assets/videos/ugc6.mp4",
+    thumb: "/thumbs/ugc6.jpg",
+    video: "/videos/ugc1.mp4",
+
   },
 ];
 
@@ -131,7 +137,7 @@ export default function Saumya() {
           <motion.div initial={{opacity:0, y:18}} animate={{opacity:1, y:0}} transition={{duration:0.9}} className="inline-block">
             <div className="relative inline-flex items-center justify-center mx-auto">
               <div className="absolute -z-10 rounded-full w-64 h-64 md:w-96 md:h-96" style={{ boxShadow: "0 40px 120px rgba(214,185,122,0.09)", background: "radial-gradient(circle at 30% 30%, rgba(255,221,180,0.12), transparent 30%)" }} />
-              <img src="/src/assets/team2.jpg" alt="Saumya" className="w-36 h-36 md:w-56 md:h-56 rounded-full object-cover border-4 border-[#e7cfa6]/30 shadow-xl" />
+              <img src="/thumbs/team2.jpg" alt="Saumya" className="w-36 h-36 md:w-56 md:h-56 rounded-full object-cover border-4 border-[#e7cfa6]/30 shadow-xl" />
             </div>
 
             <h1 className="mt-6 text-3xl md:text-5xl font-extrabold">Saumya Chandra</h1>

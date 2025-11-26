@@ -283,7 +283,7 @@ export default function Saumya() {
       <div className="h-24" />
 
       {/*
-      {modal && (
+      
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 pointer-events-none flex items-center justify-center p-4">
           <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.18 }} className="bg-white rounded-2xl shadow-xl max-w-3xl w-full overflow-hidden">
             <div className="relative">
@@ -307,7 +307,6 @@ export default function Saumya() {
             </div>
           </motion.div>
         </div>
-      )}
         */}
 
       {/* INLINE CSS: marquee animations */}

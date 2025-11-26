@@ -267,8 +267,15 @@ export default function Saumya() {
           </div>
 
           <div className="mt-8 text-center">
-            <a href="mailto:pihoo8381@gmail.com" className="px-6 py-3 rounded-full bg-gradient-to-br from-[#ffd9e0] to-[#fbe0b2] border border-black/6">Work together →</a>
-          </div>
+            <a
+            href="mailto:pihoo8831@gmail.com"
+            className="relative z-[50] px-6 py-3 rounded-full bg-gradient-to-br from-[#ffde52] to-[#f8eeb2] border border-black/60"
+          >
+             Work together →
+            </a>
+
+           </div>
+
         </div>
       </section>
 
@@ -277,7 +284,7 @@ export default function Saumya() {
 
       {/* MODAL (video preview) */}
       {modal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 pointer-events-none flex items-center justify-center p-4">
           <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.18 }} className="bg-white rounded-2xl shadow-xl max-w-3xl w-full overflow-hidden">
             <div className="relative">
               <button
